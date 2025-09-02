@@ -234,7 +234,9 @@ Using the same method and by changing the port, you can run another swarm node o
 To run Block Assist, you can use this repository
 
  install sunshine [guide](https://github.com/papa-multi/sunshine-script)
- install blockassist [guide] (https://github.com/papa-multi/gensyn-blockassist)
+
+
+ install blockassist [guide](https://github.com/papa-multi/gensyn-blockassist)
 
 You just need to change the ports to 3002 if you want to run it on the same server where you already have two Swarm nodes running.
 
