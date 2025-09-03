@@ -120,11 +120,6 @@ cd rl-swarm2
 # 1) change port
 
 
-note :  Replace every occurrence of 3000 in the file with 3001.   If you want to verify, press `Ctrl + W` , type 3000, and hit Enter.
-
-```
-nano modal_server.sh
-```
 
 note :  Replace every occurrence of 3000 in the file with 3001.   If you want to verify, press `Ctrl + W` , type 3000, and hit Enter.
 
