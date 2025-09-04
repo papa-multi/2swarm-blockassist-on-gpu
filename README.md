@@ -56,11 +56,6 @@ source ~/.bashrc
 git clone https://github.com/gensyn-ai/rl-swarm/
 ```
 
-```
-cp -r rl-swarm rl-swarm2
-```
-note:
-now you have 2 swarm first run on just gpu 
 
 > `NB`: By *GPU only*, it means:
 > * **VRAM** is used extensively
@@ -111,11 +106,33 @@ If your GPU VRAM is less than **24 GB**, you should choose one of the following 
 
 -----------------------------------------------
 
-# NODE 2 just use cpu and ram 
 
+
+----------
+# 2) run swarm 2 
+
+
+
+Make sure you are in this directory: `rl-swarm2`
+
+```
+mkdir rl-swarm2
+```
 ```
 cd rl-swarm2
 ```
+```
+git clone https://github.com/gensyn-ai/rl-swarm/
+```
+
+```
+cd rl-swarm
+```
+
+
+# NODE 2 just use cpu and ram 
+
+
 
 # 1) change port
 
@@ -124,7 +141,7 @@ cd rl-swarm2
 note :  Replace every occurrence of 3000 in the file with 3001.   If you want to verify, press `Ctrl + W` , type 3000, and hit Enter.
 
 ```
-nano /root/rl-swarm/rgym_exp/config/rg-swarm.yaml
+nano /root/rl-swarm2/rl-swarm/rgym_exp/config/rg-swarm.yaml
 ```
 
 note :  Replace every occurrence of 3000 in the file with 3001.   If you want to verify, press `Ctrl + W` , type 3000, and hit Enter.  and `CPU_ONLY=${CPU_ONLY:-"true"}`
@@ -169,18 +186,8 @@ nano /root/rl-swarm/rgym_exp/config/rg-swarm.yaml
 * `num_train_samples: 2` (If your node freezes without any errors, then change it to 1. Otherwise, leave it as 2.)
 * `num_transplant_trees: 1`
 * `beam_size: 30`
-
-----------
-# 2) run swarm 2 
-
-
-
-Make sure you are in this directory: `rl-swarm2`
-
-```
-cd rl-swarm2
-```
-
+--------------
+  
 ```
 screen -S SWARM2
 ```
