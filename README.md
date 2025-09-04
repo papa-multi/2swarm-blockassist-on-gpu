@@ -56,6 +56,11 @@ source ~/.bashrc
 git clone https://github.com/gensyn-ai/rl-swarm/
 ```
 
+```
+cp -r rl-swarm rl-swarm2
+```
+
+
 
 > `NB`: By *GPU only*, it means:
 > * **VRAM** is used extensively
@@ -115,19 +120,11 @@ If your GPU VRAM is less than **24 GB**, you should choose one of the following 
 
 Make sure you are in this directory: `rl-swarm2`
 
-```
-mkdir rl-swarm2
-```
+
 ```
 cd rl-swarm2
 ```
-```
-git clone https://github.com/gensyn-ai/rl-swarm/
-```
 
-```
-cd rl-swarm
-```
 
 
 # NODE 2 just use cpu and ram 
@@ -141,7 +138,7 @@ cd rl-swarm
 note :  Replace every occurrence of 3000 in the file with 3001.   If you want to verify, press `Ctrl + W` , type 3000, and hit Enter.
 
 ```
-nano /root/rl-swarm2/rl-swarm/rgym_exp/config/rg-swarm.yaml
+nano /root/rl-swarm2/rgym_exp/config/rg-swarm.yaml
 ```
 
 note :  Replace every occurrence of 3000 in the file with 3001.   If you want to verify, press `Ctrl + W` , type 3000, and hit Enter.  and `CPU_ONLY=${CPU_ONLY:-"true"}`
@@ -180,7 +177,6 @@ ctrl + x +y  enter
 # now change this 
 
 ```
-nano /root/rl-swarm/rgym_exp/config/rg-swarm.yaml
 ```
 
 * `num_train_samples: 2` (If your node freezes without any errors, then change it to 1. Otherwise, leave it as 2.)
