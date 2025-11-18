@@ -116,7 +116,7 @@ cp -r rl-swarm rl-swarm2
 # install 2 swarm-node
 --------------------
 
-# 3- run first swarm-node :
+# 1-run first swarm-node :
 
 ```
 cd rl-swarm & screen -S swarm1
@@ -165,7 +165,7 @@ Note: Open a new terminal
 
 -----------------------------------------------
 
-# run seconde swarm-node
+# 2-run seconde swarm-node
 
 
 ## 1) first how to  change port 3000 to 30001
@@ -185,19 +185,8 @@ sed -i 's/"dev": "next dev"/"dev": "next dev -p 3001"/; s/"start": "next start"/
 
 modal-login/package.json change to this :
 
-`
-{
-  "name": "ui-components-qs-nextjs",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "next dev -p 3001",
-    "build": "next build",
-    "start": "next start -p 3001",
-    "lint": "next lint"
-  },
-`
+
+
 
 - check
 
@@ -310,3 +299,140 @@ After solving the problem, go back to the terminal, press Ctrl+C, and wait for i
 
 
 <img width="1280" height="554" alt="image" src="https://github.com/user-attachments/assets/3091563c-4a77-4ce6-b95d-41189f2e1da5" />
+
+------------------------------------------------------------
+# install blockassist (with moonlight & sushine)
+------------------------------------------------------------
+
+
+# 1- Sunshine
+
+This script automates the setup of a **Sunshine** stream server with a virtual display and secure remote access via Cloudflare Tunnel, ideal for headless Linux systems without GPU or physical display hardware.
+
+--------------------
+
+Run these commands as root to create a new user and give them sudo access:
+
+# Create user (replace myuser with any name you want)
+```bash
+sudo adduser myuser
+```
+
+# Add user to sudo group
+```bash
+sudo usermod -aG sudo myuser
+```
+
+# Switch to new user
+```bash
+su - myuser
+```
+
+##  Usage
+
+1. Clone or download this script into your server:
+
+    ```bash
+    bash <(curl -sL https://raw.githubusercontent.com/papa-multi/2swarm-blockassist-on-gpu/refs/heads/main/sunshine.sh)
+    ```
+
+2. After installation, the script will display a **Cloudflare Tunnel URL**:
+
+    ```
+    Tunnel URL: https://xyz123.trycloudflare.com
+    ```
+
+3. Open this URL in your browser to access the Sunshine Web UI and pair with Moonlight.
+
+
+
+##  Troubleshooting
+
+- If **Sunshine Web UI fails to load**, ensure the dummy desktop is working (`lxsession` should be running).
+- If **Cloudflared tunnel exits early**, run it manually to debug:
+
+    ```bash
+    cloudflared tunnel --no-tls-verify --url https://localhost:47990
+    ```
+------------
+-----------
+# 2-run blockassist 
+
+```bash
+git clone https://github.com/gensyn-ai/blockassist.git
+cd blockassist & cd modal-login
+```
+
+```bash
+yarn install && yarn dev
+```
+
+- Open new tab 
+
+**Open login page in browser**
+* **Local PC:** Open `http://localhost:3003/` in your browser
+* **GPU Cloud & VPS Users: Tunnel to external URL:**
+  * 1- Open a new terminal
+  * 2- Install **localtunnel**:
+    ```
+    sudo npm install -g localtunnel
+    ```
+  * Get a password:
+    ```
+    curl https://loca.lt/mytunnelpassword
+    ```
+  * The password is actually your VPS IP
+  *  Get URL
+    ```
+    lt --port 3003
+    ```
+
+
+
+Go back to old tab ctrl `c` that
+
+```bash
+cd ..
+```
+
+- Run Dependency Installation
+  
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/papa-multi/2swarm-blockassist-on-gpu/refs/heads/main/blockassist.sh)
+```
+
+- Create Screen
+  
+```bash
+screen -S blockassist
+```
+
+- Run Blockassist
+
+```bash
+export DISPLAY=:0 && pyenv exec python run.py
+```
+
+```bash
+  export PYENV_ROOT="$HOME/.pyenv"
+  [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init - bash)"
+```
+
+
+## Screen Session Commands
+- **Attach to BlockAssist**:
+  ```bash
+  screen -r blockassist
+  ```
+- **Detach from session**:
+  - Press `Ctrl + A`, then `D`
+- **Stop BlockAssist**:
+  ```bash
+  screen -S blockassist -X quit
+  ```
+
+---------------------------------------------------------------------------
+
+
+
