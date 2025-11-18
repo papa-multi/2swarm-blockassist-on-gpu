@@ -60,7 +60,7 @@ go version
 ```
 
 
-# Docker, Docker-Compose
+ Docker, Docker-Compose
 
 ```console
 sudo apt update -y && sudo apt upgrade -y
