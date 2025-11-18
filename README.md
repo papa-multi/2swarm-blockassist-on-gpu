@@ -102,7 +102,8 @@ git clone https://github.com/gensyn-ai/rl-swarm/
 ```
 cp -r rl-swarm rl-swarm2
 ```
-
+--------------------
+# install 2 swarm-node
 --------------------
 
 # 3- run first swarm-node :
@@ -154,15 +155,15 @@ Note: Open a new terminal
 
 -----------------------------------------------
 
+# run seconde swarm-node
+
+
+## 1) first how to  change port 3000 to 30001
 
 
 ```
-cd rl-swarm2
+cd & cd rl-swarm2
 ```
-
-# 1) change port 
-
-`3000 to 30001`
 
 ```
 sed -i 's/3000/3001/g' run_rl_swarm.sh
@@ -194,9 +195,10 @@ check
 cat modal-login/package.json
 ```
 
-# run seconde swarm-node
+
 
   Make sure you are in this directory: `rl-swarm2`
+  
 ```
 screen -S SWARM2
 ```
@@ -249,7 +251,9 @@ At the bottom right: **GPU only**
 
 As you can see, there’s still available RAM.
 
-
+------------------------------------------------
+# install codeassist
+------------------------------------------------
 
 
 
