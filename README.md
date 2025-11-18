@@ -91,9 +91,10 @@ see your docker :
 docker ps -a
 ```
 
---------------
+-----------------
 
 ## 2- Clone the Repository :
+
 ```
 git clone https://github.com/gensyn-ai/rl-swarm/
 ```
@@ -102,7 +103,7 @@ git clone https://github.com/gensyn-ai/rl-swarm/
 cp -r rl-swarm rl-swarm2
 ```
 
-
+--------------------
 
 # 3- run first swarm-node :
 
