@@ -47,6 +47,16 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 source ~/.bashrc
 ```
 
+### Linux (or alternate MacOS install, for those without Brew)
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+```
+source $HOME/.local/bin/env
+```
+
+
 ## install docker :
 
 install Go
@@ -85,7 +95,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
-see your docker :
+- see your docker :
 
 ```
 docker ps -a
@@ -189,7 +199,7 @@ modal-login/package.json change to this :
   },
 `
 
-check
+- check
 
 ```
 cat modal-login/package.json
@@ -255,6 +265,48 @@ As you can see, there’s still available RAM.
 # install codeassist
 ------------------------------------------------
 
+# 1- Clone the Repository :
 
 
+```bash
+git clone https://github.com/gensyn-ai/codeassist.git
+cd codeassist
+```
 
+## how to change port : 
+
+- 1
+```bash
+sed -i '0,/11434/s//11435/' compose.yml
+sed -i -e 's/"11434\/tcp": 11434/"11434\/tcp": 11435/' -e 's#http://localhost:11434#http://localhost:11435#' run.py
+```
+- 2
+```bash
+cd web-ui/src/simulation/simulators
+```
+```bash
+sed -i 's#http://localhost:11434#http://localhost:11435#' OllamaCodeSimulator.ts
+```
+```bash
+cd && cd codeassist
+```
+```bash
+uv run run.py --port 3002
+```
+
+
+- run
+```
+uv run run.py --port 3002
+```
+
+# If you run it on a VPS you need to run SSH from your local PC
+
+```
+ssh -N -L 3000:localhost:3000 -L 8000:localhost:8000 -L 8008:localhost:8008 root@ipvps
+```
+
+After solving the problem, go back to the terminal, press Ctrl+C, and wait for it to finish pushing the data
+
+
+<img width="1280" height="554" alt="image" src="https://github.com/user-attachments/assets/3091563c-4a77-4ce6-b95d-41189f2e1da5" />
