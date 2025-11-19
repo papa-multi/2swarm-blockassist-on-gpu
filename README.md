@@ -334,6 +334,12 @@ This script automates the setup of a **Sunshine** stream server with a virtual d
 
 Run these commands as root to create a new user and give them sudo access:
 
+- creat screen for sunshine
+
+```
+screen -S sunshine
+```
+
 # Create user (replace myuser with any name you want)
 ```bash
 sudo adduser myuser
