@@ -1,4 +1,25 @@
 
+![gensyn](https://github.com/user-attachments/assets/a23851bc-f6a2-49ed-b710-f6f0327ff027)
+
+
+ You can run two Swarm nodes on a single GPU—one BlockAssist and one CodeAssist—as long as you assign different ports to each service.
+
+For BlockAssist, the setup uses Moonlight and Sunshine. You can use various GPU providers, but note that platforms like vast.ai require a slightly different setup because their port mappings differ.
+
+If you prefer simpler hosting with more consistent port configurations, you can use providers such as Servarica (https://servarica.com) or HostBrr (https://hostbrr.com)
+
+
+
+===========================================================================
+
+## 💻 System Requirements
+
+ | Requirement                        | Details                                                                                      |
+ |-------------------------------------|---------------------------------------------------------------------------------------------|
+ | **CUDA Devices (Recommended)**      | `RTX 3090`, `RTX 4090`, `A100`, `H100`                                                      |
+ | **minimum**                         | + 16 GB                                                                                     |
+
+===========================================================================
 
 
 > `NB`: By *GPU only*, it means:
@@ -6,7 +27,7 @@
 > *  **RAM** is used minimally
 > *  **CPU** usage is limited to a single core
 
-How to run two Swarm nodes on a single GPU,
+now to run two Swarm nodes on a single GPU,
 and also run a Block Assist node on the same GPU server.
 
 --------------------------------
