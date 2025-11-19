@@ -358,7 +358,7 @@ su - myuser
 - creat screen for sunshine
 
 ```
-screen -S sunshine
+screen -S sunhine
 ```
 
     ```bash
