@@ -381,9 +381,15 @@ su - myuser
 
 ```bash
 git clone https://github.com/gensyn-ai/blockassist.git
-cd blockassist & cd modal-login
+cd blockassist
 ```
-
+```
+ cd modal-login
+```
+- change port 
+```
+sed -i 's/"dev": "next dev"/"dev": "next dev -p 3003"/; s/"start": "next start"/"start": "next start -p 3003"/' modal-login/package.json
+```
 ```bash
 yarn install && yarn dev
 ```
